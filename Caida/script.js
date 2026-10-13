@@ -19,12 +19,18 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Datos guardados:', data);
-        alert('Conexión exitosa (Datos guardados en el servidor local)');
-        document.getElementById('loginForm').reset();
+        if (data.error) {
+            // Si el servidor devuelve un error, muéstralo
+            console.error('Error del servidor:', data.error);
+            alert('Error al guardar: ' + data.error);
+        } else {
+            console.log('Datos guardados:', data);
+            alert('Conexión exitosa (Datos guardados correctamente)');
+            document.getElementById('loginForm').reset();
+        }
     })
     .catch((error) => {
-        console.error('Error:', error);
+        console.error('Error de red:', error);
         alert('Error al conectar con el servidor.');
     });
 });
