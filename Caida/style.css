@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #1b3a5a;
+    background-color: #1b3a5a; /* Azul oscuro característico */
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@ body {
     transform: translateY(-50%);
     font-size: 400px;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.03); /* Marca de agua sutil */
     pointer-events: none;
     z-index: -1;
     font-family: sans-serif;
@@ -76,7 +76,7 @@ body {
 .input-group input {
     width: 150px;
     padding: 2px 5px;
-    border: 1px solid #7a9bbd;
+    border: 1px solid #000000; /* Cambiado a negro para igualar la captura */
     outline: none;
     font-size: 12px;
 }
@@ -85,6 +85,16 @@ body {
     text-align: right;
     margin-bottom: 10px;
     padding-right: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+
+.arrow {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: bold;
 }
 
 .forgot-password a {
@@ -99,11 +109,11 @@ body {
 
 .btn-connect {
     background-color: #e0e0e0;
-    border: 1px solid #7a9bbd;
+    border: 1px solid #000000; /* Cambiado a negro para igualar la captura */
     padding: 2px 10px;
     font-size: 11px;
     cursor: pointer;
-    margin-left: 90px;
+    margin-left: 90px; /* Alineación con los inputs */
 }
 
 .btn-connect:hover {
